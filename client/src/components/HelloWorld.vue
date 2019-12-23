@@ -79,14 +79,14 @@ export default {
   },
   methods: {
     submitted: function() {
-      axios.post("http://localhost:9000/api/users", {
+      axios.post("http://localhost:9000/users", {
         name: this.userData.name,
         age: this.userData.age
       });
     }
   },
   mounted() {
-    axios.get("http://localhost:9000/api/users").then(res => {
+    axios.get("http://localhost:9000/users").then(res => {
       this.users = res.data;
     });
   }
