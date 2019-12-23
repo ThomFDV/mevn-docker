@@ -1,32 +1,62 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          class="form-control"
-          v-model="userData.name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="age">Age</label>
-        <input
-          type="number"
-          id="age"
-          class="form-control"
-          v-model="userData.age"
-        />
-      </div>
-      <button @click.prevent="submitted">Create</button>
+    <h3>
+      Made with 💙 by
+      <a href="https://github.com/ThomFDV" class="pure-link">ThomFDV</a>
+    </h3>
+
+    <div class="card-container">
+      <md-card md-with-hover>
+        <md-ripple>
+          <md-card-header>
+            <div class="md-title">User Form</div>
+            <div class="md-subhead">Create a new user here</div>
+          </md-card-header>
+
+          <md-card-content>
+            <md-field>
+              <label>Initial Value</label>
+              <md-input
+                id="name"
+                class="form-control"
+                v-model="userData.name"
+              ></md-input>
+            </md-field>
+            <md-field>
+              <label>Initial Value</label>
+              <md-input
+                type="number"
+                id="age"
+                class="form-control"
+                v-model="userData.age"
+              ></md-input>
+            </md-field>
+          </md-card-content>
+
+          <md-card-actions>
+            <md-button class="md-raised md-primary" @click.prevent="submitted"
+              >Create</md-button
+            >
+          </md-card-actions>
+        </md-ripple>
+      </md-card>
     </div>
     <div>
-      <ul v-for="user in users" :key="user">
-        <li>{{ user.name }}</li>
-        <li>{{ user.age }}</li>
-      </ul>
+      <md-card
+        v-for="(user, index) in users"
+        :key="user"
+        class="multiple-card-container"
+      >
+        <md-card-header>
+          <div class="md-title">User {{ index }}</div>
+        </md-card-header>
+
+        <md-card-content>
+          <p>{{ user.name }}</p>
+          <p>{{ user.age }}</p>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
 </template>
@@ -63,4 +93,33 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.pure-link {
+  text-decoration: none;
+}
+.md-card-actions > .md-button {
+  margin: auto !important;
+  min-width: 130px;
+}
+.card-container {
+  margin: auto;
+  width: 100%;
+  padding: 2rem;
+}
+.multiple-card-container {
+  width: 320px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  .card-container {
+    width: 70%;
+  }
+}
+@media (min-width: 1024px) {
+  .card-container {
+    width: 70%;
+  }
+}
+</style>
