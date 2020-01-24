@@ -22,3 +22,5 @@ docker-compose up --build
 You should see the frontend at `http://localhost:8080`.
 
 Work in progress to enhance the project structure.
+
+See how to set it up with a CI like Jenkins, Gitlab or Github Atcions

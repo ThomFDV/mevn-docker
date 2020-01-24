@@ -3,7 +3,7 @@ FROM nginx:alpine
 RUN apk add --update \
 	nodejs-npm
 
-WORKDIR app
+WORKDIR /user/local/app
 
 COPY package*.json ./
 
