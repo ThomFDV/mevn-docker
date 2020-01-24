@@ -16,7 +16,7 @@ Clone the project, then run the docker-compose file and have fun !
 
 ```bash
 cd mevn-docker
-docker-compose run --build
+docker-compose up --build
 ```
 
 You should see the frontend at `http://localhost:8080`.
